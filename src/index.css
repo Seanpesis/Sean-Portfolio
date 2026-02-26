@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[#fafaf9] text-gray-900 transition-colors duration-500;
+}
+
+.dark body {
+  @apply bg-[#0f172a] text-gray-100;
+}
+
+/* אנימציה לצורה אמורפית זורמת */
+@keyframes morph {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+.blob-shape {
+  animation: morph 8s ease-in-out infinite;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2);
+}
+
+.blob-shadow {
+  animation: morph 12s ease-in-out infinite reverse;
+  filter: blur(40px);
+  opacity: 0.6;
+}
+
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+}
